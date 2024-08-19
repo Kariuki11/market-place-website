@@ -21,6 +21,6 @@ from core.views import index, contact
 
 urlpatterns = [
     path('', index, name='index'),
-    path('contact/', contact, name='contact'),  # Ensure this line is present
+     path('contact/', contact, name='contact'),  # Ensure this line is present
     path('admin/', admin.site.urls),
 ]
