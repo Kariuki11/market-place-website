@@ -6,3 +6,23 @@ class SignupForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
+        
+    username = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'w-full py-4 px-6 rounded-xl',
+        'placeholder': 'Your Username'
+    }))
+    
+    email = forms.CharField(widget=forms.EmailInput(attrs={
+        'class': 'w-full py-4 px-6 rounded-xl',
+        'placeholder': 'Your email address',
+    }))
+    
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={
+        'class': 'w-full py-4 px-6 rounded-xl',
+        'placeholder': 'Your password',
+    }))
+    
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={
+        'class': 'w-full py-4 px-6 rounded-xl',
+        'placeholder': 'Repeat password',
+    }))
