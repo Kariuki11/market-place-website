@@ -1,4 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+
+from .models import Item
 
 def detail(request, pk):
-    item
+    item = get_object_or_404(item, pk=pk)
+    
+    return render(request, 'item/detail.html', {
+        'item': item
+    })
