@@ -5,7 +5,11 @@
 {% block content %}
     <div class="pb-6 grid grid-cols-4 gap-4 bg-gray-200">
         <div class="col-span-1">
-            side bar
+            <form method="get" action="{% url 'item:items' %}">
+                <input name="query" class="w-full py-4 px-6 border rounded-xl" type="text" value="{{ query }}" placeholder="Find a bike, a chair or a car ...">
+
+                <button class="mt-6 py-4 px-8 text-lg bg-teal-500 hover:bg-teal-700 rounded-xl text-white">Search</button>
+            </form>
         </div>
 
         <div class="col-span-3">
