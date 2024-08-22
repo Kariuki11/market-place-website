@@ -48,6 +48,15 @@ def inbox(request):
         'conversations': conversations,
     })
 
+@login_required
+def detail(request, pk):
+    conversations = Conversation.objects.filter(members__in=[request.user.id]).get(pk=pk)
+    
+    return render(request, 'conversation/detail.html', {
+        'conversation': Conversation
+    })
+    
+
 
 
 # from django.shortcuts import render, get_object_or_404, redirect
