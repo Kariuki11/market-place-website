@@ -7,9 +7,11 @@ from .models import Category, Item
 
 def items(request):
     query = request.GET.get('query', '')
-    category_id = request.GET.get('category_id, 0')
+    category_id = request.GET.get('category', 0)
     categories = Category.objects.all()
     items = Item.objects.filter(is_sold=False)
+    
+    
     
     if query:
         items = items.filter(Q(name__icontains=query) | Q(description__icontains=query))
@@ -18,6 +20,7 @@ def items(request):
         'items': items,
         'query': query,
         'categories': categories,
+        'category_id': int(category_id)
     })
 
 def detail(request, pk):
