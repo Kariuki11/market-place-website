@@ -47,14 +47,25 @@ def inbox(request):
     return render(request, 'conversation/inbox.html', {
         'conversations': conversations,
     })
-
+    
 @login_required
 def detail(request, pk):
-    conversations = Conversation.objects.filter(members__in=[request.user.id]).get(pk=pk)
+    # Retrieve the conversation or return a 404 error if not found
+    conversation = get_object_or_404(Conversation, pk=pk, members__in=[request.user.id])
     
+    # Render the template with the conversation instance
     return render(request, 'conversation/detail.html', {
-        'conversation': Conversation
+        'conversation': conversation
     })
+
+
+# @login_required
+# def detail(request, pk):
+#     conversations = Conversation.objects.filter(members__in=[request.user.id]).get(pk=pk)
+    
+#     return render(request, 'conversation/detail.html', {
+#         'conversation': Conversation
+#     })
     
 
 
