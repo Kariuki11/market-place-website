@@ -51,12 +51,38 @@ def inbox(request):
 @login_required
 def detail(request, pk):
     # Retrieve the conversation or return a 404 error if not found
-    conversation = get_object_or_404(Conversation, pk=pk, members__in=[request.user.id])
+    conversation = Conversation.objects.filter(members__in=[request.user.id]).get(pk=pk)
+    
+    if request.method == 'POST':
+        form = ConversationMessageForm(request.POST)
+        
+        if form.is_valid():
+            conversation_message = form.save(commit=False)
+            conversation_message.conversation = conversation
+            conversation_message.created_by = request.user
+            conversation_message.save()
+            
+            conversation.save()
+            
+            return redirect('conversation:detail', pk=pk)
     
     # Render the template with the conversation instance
     return render(request, 'conversation/detail.html', {
         'conversation': conversation
     })
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # @login_required
