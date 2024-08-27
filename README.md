@@ -1,6 +1,4 @@
-
-
-**Explainnig** is a user-friendly online marketplace that allows people to buy and sell goods with ease. The platform also facilitates interaction between sellers and customers, providing a seamless and efficient shopping experience.
+This is a user-friendly online marketplace that allows people to buy and sell goods with ease. The platform also facilitates interaction between sellers and customers, providing a seamless and efficient shopping experience.
 
 ## Purpose
 
@@ -21,13 +19,11 @@ The main purpose of Explainnig is to create a simple and accessible marketplace 
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/explainnig.git
+   git clone https://github.com/Kariuki11/market-place-website
    ```
 
 2. **Navigate to the project directory:**
-   ```bash
-   cd explainnig
-   ```
+   ```market-place-website```
 
 3. **Install dependencies:**
    ```bash
@@ -59,7 +55,3 @@ We welcome contributions! If you'd like to contribute to this project, please fo
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
----
-
-Feel free to modify this template to better fit your project's specifics!
