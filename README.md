@@ -1,8 +1,4 @@
-Here's a sample `README.md` file for your project:
 
----
-
-# Explainnig
 
 **Explainnig** is a user-friendly online marketplace that allows people to buy and sell goods with ease. The platform also facilitates interaction between sellers and customers, providing a seamless and efficient shopping experience.
 
