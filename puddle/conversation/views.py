@@ -16,7 +16,7 @@ def new_conversation(request, item_pk):
     conversations = Conversation.objects.filter(item=item).filter(members__in=[request.user.id])
     
     if conversations:
-        pass  # Return to conversations
+        return redirect('conversation:detail', pk=conversations.first().id)
     
     if request.method == 'POST':
         form = ConversationMessageForm(request.POST)
@@ -65,10 +65,13 @@ def detail(request, pk):
             conversation.save()
             
             return redirect('conversation:detail', pk=pk)
+    else:
+        form = ConversationMessageForm()
     
     # Render the template with the conversation instance
     return render(request, 'conversation/detail.html', {
-        'conversation': conversation
+        'conversation': conversation,
+        'form': form
     })
 
 
